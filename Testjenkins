@@ -1,0 +1,42 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('clean workspace') {
+         steps {
+            cleanWs()
+         }
+      }
+      
+      stage('checkout code'){
+          steps{
+              dir('code'){
+                  git branch: 'develop', url: 'https://github.com/babusatti/yorrepo.git'
+              }
+              dir('script'){
+                  git branch: 'master', url: 'https://github.com/babusatti/yourrepo.git'
+              }
+          }
+      }
+          
+          
+      stage('build'){
+          steps{
+             
+                  sh '********call gradle wrapper srcipt****'
+              
+          }
+      }
+      stage('scripts'){
+          steps{
+              sh '********permission-confog.pro-any other****'
+          }
+      }
+      stage('Artifactory'){
+          steps{
+              script{
+                 sh '********uploadglobal.sh****'
+              }
+                  
+          }
+      }
