@@ -23,19 +23,24 @@ pipeline {
       stage('build'){
           steps{
              
-                  sh '********call gradle wrapper srcipt****'
+                  sh 'echo "build.date="$(date +'%Y-%m-%d_%H:%M:%S') > code/modules/configuration/config/resources/version/version.properties'
+                  sh 'echo "svn.revision=$GIT_COMMIT" >> code/modules/configuration/config/resources/version/version.properties'
+                  sh 'echo "release.name=$JOB_BASE_NAME" >> code/modules/configuration/config/resources/version/version.properties'
+                  sh 'echo "build.number=$BUILD_NUMBER" >> code/modules/configuration/config/resources/version/version.properties'
+                  
               
           }
       }
       stage('scripts'){
           steps{
-              sh '********permission-confog.pro-any other****'
+              sh 'chmod +x ./script/buildpc904.sh;./script/buildpc904.sh'
+              sh 'chmod +x ./script/uploadGlobal.sh;./script/uploadGlobal.sh ${JOB_BASE_NAME} ${BUILD_NUMBER}'
           }
       }
       stage('Artifactory'){
           steps{
               script{
-                 sh '********uploadglobal.sh****'
+                 sh 'https://plentjnks01.aaa-acg.net:8543/artifactory/libs-snapshot-local/com/aaa/acg/guidewire/pc'
               }
                   
           }
