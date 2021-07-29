@@ -11,10 +11,10 @@ pipeline {
       stage('checkout code'){
           steps{
               dir('code'){
-                  git branch: 'develop', url: 'https://github.com/babusatti/yorrepo.git'
+                  git branch: 'POC_branch1', url: 'https://paentgit01.aaa-acg.net/ACG/guidewire-policycenter'
               }
               dir('script'){
-                  git branch: 'master', url: 'https://github.com/babusatti/yourrepo.git'
+                  git branch: 'POC_master', url: 'https://paentgit01.aaa-acg.net/ACG/guidewire-policycenter'
               }
           }
       }
