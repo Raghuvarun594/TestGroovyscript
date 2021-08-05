@@ -1,0 +1,52 @@
+pipeline {
+   agent any
+   
+   tools{ jdk 'JDK'
+       
+   }
+
+   stages {
+      stage('clean workspace') {
+         steps {
+            cleanWs()
+         }
+      }
+      
+      stage('checkout code'){
+          steps{
+              dir('code'){
+                  git branch: 'GWR3-ILWI', url:'git@paentgit01.aaa-acg.net:ACG/guidewire-policycenter.git'
+              }
+              dir('script'){
+                  git branch: 'master', url: 'git@paentgit01.aaa-acg.net:ACG/guidewire-policycenter-build.git'
+              }
+          }
+      }
+          
+          
+      stage('script'){
+          steps{
+              sh 'echo "build.date="$(date +"%Y-%m-%d %H:%M:%S %s") >> code/modules/configuration/config/resources/version/version.properties'
+              sh 'echo "svn.revision=$GIT_COMMIT" >> code/modules/configuration/config/resources/version/version.properties'
+              sh 'echo "release.name=$JOB_BASE_NAME" >> code/modules/configuration/config/resources/version/version.properties'
+              sh 'echo "build.number=$BUILD_NUMBER" >> code/modules/configuration/config/resources/version/version.properties'
+                  
+            }
+      }
+      stage('build'){
+          steps{
+              sh 'chmod +x ./script/buildpc904.sh;./script/buildpc904.sh'
+              
+          }
+      }
+      stage('Artifactory'){
+          steps{
+              script{
+                 
+                 sh 'chmod +x ./script/uploadGlobal.sh;./script/uploadGlobal.sh ${JOB_BASE_NAME} ${BUILD_NUMBER}'
+              }
+                  
+          }
+      }
+   }
+}
