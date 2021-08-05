@@ -15,10 +15,10 @@ pipeline {
       stage('checkout code'){
           steps{
               dir('code'){
-                  git branch: 'GWR3-ILWI', url:'git@paentgit01.aaa-acg.net/ACG/guidewire-billingcenter'
+                  git branch: 'GWR3-ILWI', url:'git@paentgit01.aaa-acg.net:ACG/guidewire-billingcenter.git'
               }
               dir('script'){
-                  git branch: 'master', url: 'git@paentgit01.aaa-acg.net/ACG/guidewire-billingcenter-build'
+                  git branch: 'master', url: 'git@paentgit01.aaa-acg.net:ACG/guidewire-billingcenter-build.git'
               }
           }
       }
@@ -35,7 +35,7 @@ pipeline {
       }
       stage('build'){
           steps{
-              sh 'chmod +x ./script/buildpc904.sh;./script/buildpc904.sh'
+              sh 'chmod +x ./script/buildbc904.sh;./script/buildbc904.sh'
               
           }
       }
