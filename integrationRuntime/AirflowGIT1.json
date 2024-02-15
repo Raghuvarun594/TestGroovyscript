@@ -20,7 +20,6 @@
 				},
 				"airflowEnvironmentVariables": null,
 				"airflowRequirements": [
-					"apache-airflow-providers-databricks",
 					"airflow.providers.databricks"
 				],
 				"enableAADIntegration": false,
