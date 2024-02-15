@@ -21,9 +21,7 @@
 					"branch": "main"
 				},
 				"airflowEnvironmentVariables": null,
-				"airflowRequirements": [
-					"/opt/airflow/git/airflow2.git/"
-				],
+				"airflowRequirements": [],
 				"enableAADIntegration": false,
 				"enableTriggerers": false,
 				"userName": "admin",
