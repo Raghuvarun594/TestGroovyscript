@@ -13,6 +13,7 @@
 			},
 			"airflowProperties": {
 				"airflowVersion": "2.6.3",
+				"airflowWebUrl": "https://1efa0069831708.westus.airflow.svc.datafactory.azure.com/login/",
 				"gitSyncProperties": {
 					"gitServiceType": "Github",
 					"gitCredentialType": "None",
@@ -20,7 +21,9 @@
 					"branch": "main"
 				},
 				"airflowEnvironmentVariables": null,
-				"airflowRequirements": [],
+				"airflowRequirements": [
+					"/opt/airflow/git/airflow2.git/dags"
+				],
 				"enableAADIntegration": false,
 				"enableTriggerers": false,
 				"userName": "admin",
