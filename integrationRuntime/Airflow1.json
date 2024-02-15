@@ -1,0 +1,34 @@
+{
+	"name": "Airflow1",
+	"properties": {
+		"type": "Airflow",
+		"typeProperties": {
+			"computeProperties": {
+				"location": "West US",
+				"computeSize": "Large",
+				"extraNodes": 0,
+				"enableAutoscale": true,
+				"autoScaleMinNodes": 3,
+				"autoScaleMaxNodes": 8
+			},
+			"airflowProperties": {
+				"airflowVersion": "2.6.3",
+				"gitSyncProperties": {
+					"gitServiceType": "Github",
+					"gitCredentialType": "None",
+					"repo": "https://github.com/Ranjeet1811/airflow2.git",
+					"branch": "master"
+				},
+				"airflowEnvironmentVariables": null,
+				"airflowRequirements": [],
+				"enableAADIntegration": true,
+				"enableTriggerers": false,
+				"userName": null,
+				"password": null,
+				"airflowEntityReferences": [],
+				"encryptedSecrets": [],
+				"secrets": null
+			}
+		}
+	}
+}
