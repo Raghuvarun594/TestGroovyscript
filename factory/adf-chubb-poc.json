@@ -1,0 +1,9 @@
+{
+	"name": "adf-chubb-poc",
+	"location": "westus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "909e5590-2c17-43e7-b016-ddfe40ca3411",
+		"tenantId": "455983a5-3ffc-4305-9655-9b67cada1333"
+	}
+}
