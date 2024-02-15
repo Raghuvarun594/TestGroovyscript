@@ -22,7 +22,7 @@
 				},
 				"airflowEnvironmentVariables": null,
 				"airflowRequirements": [
-					"/opt/airflow/git/airflow2.git/dags"
+					"/opt/airflow/git/airflow2.git/dags/dag_with_postgres_operator.py"
 				],
 				"enableAADIntegration": false,
 				"enableTriggerers": false,
