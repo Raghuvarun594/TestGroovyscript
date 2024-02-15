@@ -11,6 +11,7 @@
 			},
 			"airflowProperties": {
 				"airflowVersion": "2.6.3",
+				"airflowWebUrl": "https://966d0191031708.westus.airflow.svc.datafactory.azure.com/login/",
 				"gitSyncProperties": {
 					"gitServiceType": "Github",
 					"gitCredentialType": "None",
@@ -18,7 +19,9 @@
 					"branch": "main"
 				},
 				"airflowEnvironmentVariables": null,
-				"airflowRequirements": [],
+				"airflowRequirements": [
+					"apache-airflow-providers-databricks"
+				],
 				"enableAADIntegration": false,
 				"enableTriggerers": false,
 				"userName": "admin",
